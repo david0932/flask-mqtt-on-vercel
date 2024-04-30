@@ -61,7 +61,7 @@ def handle_mqtt_message(client, userdata, message):
         last_message = payload
 
 @mqtt.on_disconnect()
-def handle_disconnect(client, userdata, flags, rc):
+def handle_disconnect(client, userdata, rc):
     global connect_flag
     connect_flag = False  # 斷開連線時重置連線狀態
 
