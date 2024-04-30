@@ -56,11 +56,12 @@ def handle_mqtt_message(client, userdata, message):
             #print('hello')
             #print(payload)
         last_message = payload
-
+'''
 @mqtt.on_disconnect()
 def handle_disconnect(client, userdata, rc):
     global connect_flag
     connect_flag = False  # 斷開連線時重置連線狀態
+'''
 '''
 @mqtt.on_log()
 def handle_logging(client, userdata, level, buf):
