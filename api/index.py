@@ -28,8 +28,11 @@ def show_power():
 
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
-    global connect_flag
+    #global connect_flag
+    print("Connected to MQTT broker")
+    mqtt.subscribe('elec110')
     #if not connect_flag and rc == 0:
+    '''
     if rc == 0:
         print("Connected to MQTT broker")
         if not connect_flag:
@@ -37,7 +40,7 @@ def handle_connect(client, userdata, flags, rc):
             connect_flag = True
     else:
         print("Connection failed")
-
+    '''
 @mqtt.on_message()
 def handle_mqtt_message(client, userdata, message):
     global last_message
