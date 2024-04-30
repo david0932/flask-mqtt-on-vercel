@@ -28,11 +28,11 @@ def show_power():
 
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
-    #global connect_flag
-    print("Connected to MQTT broker")
-    mqtt.subscribe('elec110')
+    global connect_flag
+    #print("Connected to MQTT broker")
+    #mqtt.subscribe('elec110')
     #if not connect_flag and rc == 0:
-    '''
+
     if rc == 0:
         print("Connected to MQTT broker")
         if not connect_flag:
@@ -40,7 +40,7 @@ def handle_connect(client, userdata, flags, rc):
             connect_flag = True
     else:
         print("Connection failed")
-    '''
+
 @mqtt.on_message()
 def handle_mqtt_message(client, userdata, message):
     global last_message
@@ -59,12 +59,12 @@ def handle_mqtt_message(client, userdata, message):
             #print('hello')
             #print(payload)
         last_message = payload
-'''
+
 @mqtt.on_disconnect()
-def handle_disconnect(client, userdata, rc):
+def handle_disconnect(client, userdata, flags, rc):
     global connect_flag
     connect_flag = False  # 斷開連線時重置連線狀態
-'''
+
 '''
 @mqtt.on_log()
 def handle_logging(client, userdata, level, buf):
